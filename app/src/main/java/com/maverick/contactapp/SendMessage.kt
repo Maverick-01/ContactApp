@@ -41,7 +41,7 @@ class SendMessage : AppCompatActivity() {
         textSms = "Hi $name, your OTP is $randomNumber"
         message.text = textSms
 
-//        viewModel = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(HistoryViewModel::class.java)
+        viewModel = ViewModelProvider(this,ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(HistoryViewModel::class.java)
 
 //        viewModel.allHistory.observe(this, androidx.lifecycle.Observer { list ->
 //            list?.let {
@@ -81,7 +81,7 @@ class SendMessage : AppCompatActivity() {
             val sms = SmsManager.getDefault()
             sms.sendTextMessage(number,null,textSms,null,null)
             Toast.makeText(this,"Sms sent successfully!",Toast.LENGTH_LONG).show()
-//            saveToDatabase()
+            saveToDatabase()
         }catch (e:Exception){
             Toast.makeText(this,"Failure occurred!",Toast.LENGTH_LONG).show()
         }
